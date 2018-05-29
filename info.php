@@ -1,44 +1,44 @@
 <?php
-/*
- * A WebsiteBaker module for the OpenEstate-PHP-Export
- * Copyright (C) 2010-2014 OpenEstate.org
+
+/**
+ * @module          OpenEstate PHP-Wrapper
+ * @author          Andreas Rudolph, Walter Wagner, cms-lab
+ * @copyright       2010-2018 Andreas Rudolph, Walter Wagner, cms-lab
+ * @link            http://www.cms-lab.com
+ * @license         GNU General Public License version 3
+ * @license_terms   see info.php of addon
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3 as
- * published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
+// include class.secure.php to protect this file and the whole CMS!
+if (defined('LEPTON_PATH')) {   
+   include(LEPTON_PATH.'/framework/class.secure.php');
+} else {
+   $oneback = "../";
+   $root = $oneback;
+   $level = 1;
+   while (($level < 10) && (!file_exists($root.'/framework/class.secure.php'))) {
+      $root .= $oneback;
+      $level += 1;
+   }
+   if (file_exists($root.'/framework/class.secure.php')) {
+      include($root.'/framework/class.secure.php');
+   } else {
+      trigger_error(sprintf("[ <b>%s</b> ] Can't include class.secure.php!", $_SERVER['SCRIPT_NAME']), E_USER_ERROR);
+   }
+}
+// end include class.secure.php
 
-// this becomes the name of the directory created
-$module_directory = 'openestate_php_wrapper';
-
-// this becomes the name of the module
-$module_name = 'OpenEstate PHP-Wrapper';
-
-// defines that the module is to be used as an option when creating an page, needed for WB versions since 2.6.x
-$module_function = 'page';
-
-// give your module an version number
-$module_version = '0.5';
-
-// say for what vesion you have designed the module, this line is needed for WB versions since 2.6.x
-$module_platform = '2.6.x';
-
-// say who has worked on this module
-$module_author = 'Andreas Rudolph, Walter Wagner';
-
-// say under what license the module is released
-$module_license = 'GNU General Public License version 3';
-
-// give a short descreption what the module does
-$module_description = 'This module integrates PHP-exported properties from OpenEstate-ImmoTool into WebsiteBaker.';
+$module_directory     = "openestate_php_wrapper";
+$module_name          = "OpenEstate PHP-Wrapper";
+$module_function      = "page";
+$module_version       = "1.0.0";
+$module_platform      = "4.x";
+$module_author        = "Andreas Rudolph, Walter Wagner, cms-lab";
+$module_license       = "GNU General Public License version 3";
+$module_license_terms = "-";
+$module_description   = "This module integrates PHP-exported properties from OpenEstate-ImmoTool into LEPTON cms.";
+$module_guid		  = "5ae336d6-441b-403a-bb19-191b551f5feb";
 
 
 // define name of URL parameters for the wrapped scripts
@@ -144,3 +144,5 @@ if (!is_array($module_i18n)) {
 else {
   $module_description = $module_i18n['description'];
 }
+?>
+
