@@ -1,0 +1,50 @@
+{#
+/**
+ * @module          OpenEstate PHP-Wrapper
+ * @author          Andreas Rudolph, Walter Wagner, cms-lab
+ * @copyright       2010-2018 Andreas Rudolph, Walter Wagner, cms-lab
+ * @link            http://www.cms-lab.com
+ * @license         GNU General Public License version 3
+ * @license_terms   see info.php of addon
+ *
+ */
+ #}
+ 
+<!-- start twig content -->
+{% autoescape false %}
+<div class="ui {{ oOPW.addon_color }} segment">
+	<h3 class="ui header">Module Info</h3>
+	<div class="ui basic segment">
+		<h3 class="ui header"></h3>
+		<div class="spacer"></div>
+		<div class="ui grid">
+			<div class="one wide column"></div>					
+			<div class="five wide column">
+				<img src="{{ image_url }}" class="module_icon" />
+			</div>
+			<div class="eight wide column custom_link">
+				<h3>{{ oOPW.module_name }}</h3>
+				<h4>{{ oOPW.module_description }}</h4>
+				<p> </p>						
+				<p>{{ TEXT.VERSION }}: {{ oOPW.module_version }}</p>	
+				<p> </p>
+				<p>GUID: {{ oOPW.module_guid }}</p>	
+				<p> </p>				
+				<p>License: {{ oOPW.module_license }}</p>
+				<p> </p>						
+				<div class="ui basic button">
+				<i class="{{ oOPW.addon_color }} icon call square"></i>
+				<!-- include js code -->
+				{{ SUPPORT }}
+				</div>
+				<p> </p>
+				<p>{{ readme_link }}</p>
+				<div class="spacer3"> </div>						
+				<p><a href="{{ ADMIN_URL }}/pages/modify.php?page_id={{ page_id }}"><input class="ui {{ oOPW.addon_color }} button" type="submit" value="{{ TEXT.BACK }}" /></a></p>							
+				</div>
+			<div class="two wide column"></div>
+		</div>
+	</div>
+</div>
+{% endautoescape %}
+<!-- end twig content -->

@@ -14,12 +14,12 @@
 if (defined('LEPTON_PATH')) {   
    include(LEPTON_PATH.'/framework/class.secure.php');
 } else {
-   $oneback => "../";
-   $root => $oneback;
-   $level => 1;
+   $oneback = "../";
+   $root = $oneback;
+   $level = 1;
    while (($level < 10) && (!file_exists($root.'/framework/class.secure.php'))) {
-      $root .=> $oneback;
-      $level +=> 1;
+      $root .= $oneback;
+      $level += 1;
    }
    if (file_exists($root.'/framework/class.secure.php')) {
       include($root.'/framework/class.secure.php');
@@ -29,7 +29,7 @@ if (defined('LEPTON_PATH')) {
 }
 // end include class.secure.php
 
-$MOD_OPENESTATE_PHP_WRAPPER => array(
+$MOD_OPENESTATE_PHP_WRAPPER = array(
 
 // Allgemein
 'description' => 'Dieses Modul integriert PHP-Immobilienexporte aus dem OpenEstate-ImmoTool in LEPTON CMS.',

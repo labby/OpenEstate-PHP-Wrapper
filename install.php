@@ -31,7 +31,8 @@ if (defined('LEPTON_PATH')) {
 $table_fields="
 	`section_id` INT NOT NULL DEFAULT 0,
 	`page_id` INT NOT NULL DEFAULT 0,
-	`wrapper_settings` TEXT,	
+	`immotool_base_path` VARCHAR(256) NOT NULL DEFAULT '".LEPTON_PATH.MEDIA_DIRECTORY."/immotool/',
+	`immotool_base_url` VARCHAR(256) NOT NULL DEFAULT '".LEPTON_URL.MEDIA_DIRECTORY."/immotool/',
 	 PRIMARY KEY ( `section_id` )
 	";
 LEPTON_handle::install_table("mod_openestate_php_wrapper", $table_fields);

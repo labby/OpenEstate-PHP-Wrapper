@@ -35,7 +35,7 @@ $module_function      = "page";
 $module_version       = "1.0.0";
 $module_platform      = "4.x";
 $module_author        = "Andreas Rudolph, Walter Wagner, cms-lab";
-$module_license       = "GNU General Public License version 3";
+$module_license       = "<a href='https://cms-lab.com/_documentation/openestate-php-wrapper/license.php' target='-blank'>GNU General Public License version 3</a>";
 $module_license_terms = "-";
 $module_description   = "This module integrates PHP-exported properties from OpenEstate-ImmoTool into LEPTON cms.";
 $module_guid		  = "5ae336d6-441b-403a-bb19-191b551f5feb";
@@ -124,25 +124,6 @@ if (!function_exists('load_default_immotool_settings')) {
     }
   }
 
-}
-
-// load translations for the module
-$module_i18n = array();
-foreach (array(LANGUAGE, DEFAULT_LANGUAGE, 'EN') as $lang) {
-  $i18n_file = WB_PATH . '/modules/' . $module_directory . '/lang/' . $lang . '.php';
-  if (!is_file($i18n_file)) {
-    continue;
-  }
-  $module_i18n = include( $i18n_file );
-  if (is_array($module_i18n)) {
-    break;
-  }
-}
-if (!is_array($module_i18n)) {
-  echo 'Can\'t load module translation!<hr/>';
-}
-else {
-  $module_description = $module_i18n['description'];
 }
 ?>
 
