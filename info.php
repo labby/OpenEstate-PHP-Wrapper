@@ -99,10 +99,10 @@ if (!function_exists('load_default_immotool_settings')) {
       $settings['immotool_wrap_script'] = 'index';
     }
     if (!isset($settings['immotool_base_path']) || !is_string($settings['immotool_base_path'])) {
-      $settings['immotool_base_path'] = WB_PATH . '/media/immotool/';
+      $settings['immotool_base_path'] = LEPTON_PATH . MEDIA_DIRECTORY .'/immotool/';
     }
     if (!isset($settings['immotool_base_url']) || !is_string($settings['immotool_base_url'])) {
-      $settings['immotool_base_url'] = WB_URL . '/media/immotool/';
+      $settings['immotool_base_url'] = LEPTON_URL .  MEDIA_DIRECTORY .'/immotool/';
     }
     if (!isset($settings['immotool_index']) || !is_array($settings['immotool_index'])) {
       $settings['immotool_index'] = array();

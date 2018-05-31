@@ -31,8 +31,7 @@ if (defined('LEPTON_PATH')) {
 $table_fields="
 	`section_id` INT NOT NULL DEFAULT 0,
 	`page_id` INT NOT NULL DEFAULT 0,
-	`immotool_base_path` VARCHAR(256) NOT NULL DEFAULT '".LEPTON_PATH.MEDIA_DIRECTORY."/immotool/',
-	`immotool_base_url` VARCHAR(256) NOT NULL DEFAULT '".LEPTON_URL.MEDIA_DIRECTORY."/immotool/',
+	`wrapper_settings` TEXT NOT NULL,
 	 PRIMARY KEY ( `section_id` )
 	";
 LEPTON_handle::install_table("mod_openestate_php_wrapper", $table_fields);
@@ -61,6 +60,10 @@ $field_values="
 	(NULL,'query_end', '', 'openestate_php_wrapper')
 ";
 LEPTON_handle::insert_values('search', $field_values);
+
+// create directory for exported/uploaded files
+LEPTON_handle::register( "make_dir" );
+make_dir(LEPTON_PATH.MEDIA_DIRECTORY.'/immotool'); 
 ?>
 
 

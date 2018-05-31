@@ -61,7 +61,7 @@ if(isset ($_POST['job']) && ($_POST['job']== 'show_info') ) {
 		$form_values				//	template-data
 	);	
 } else {
-//die(LEPTON_tools::display($settings,'pre','ui message'));	
+	
 	load_default_immotool_settings($settings);
 
 	// init script environment
@@ -88,12 +88,15 @@ if(isset ($_POST['job']) && ($_POST['job']== 'show_info') ) {
 	  }
 	}
 	$environmentIsValid = count($environmentErrors) == 0;	
-	
+//die(LEPTON_tools::display($environmentErrors,'pre','ui message'));	
 	// Additional marker settings
 	$form_values = array(
 		'oOPW'			=> $oOPW,
 		'section_id'	=> $section_id,
 		'page_id'		=> $page_id,
+		'valid'			=> $environmentIsValid,
+		'errors'		=> $environmentErrors,
+		'immotool_version' => IMMOTOOL_SCRIPT_VERSION,
 		'readme'		=> 'https://cms-lab.com/_documentation/openestate-php-wrapper/readme.php',			
 		'leptoken'		=> get_leptoken()
 	);

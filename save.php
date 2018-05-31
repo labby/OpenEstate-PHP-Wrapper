@@ -29,6 +29,8 @@ if (defined('LEPTON_PATH')) {
 }
 // end include class.secure.php
 
+die(LEPTON_tools::display($_POST,'pre','ui message'));	
+
 // load current page configuration
 $settings = array();
 $query_content = $database->query("SELECT * FROM " . TABLE_PREFIX . "mod_$module_directory WHERE section_id = '$section_id'");

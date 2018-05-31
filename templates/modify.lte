@@ -31,8 +31,57 @@ function show_wrapper_settings($value)
 		</form>
 	</div>
 	<div class="ui basic segment">
-	<h3 class="ui header">Module Settings</h3>
-
+		<h3 class="ui {{ oOPW.addon_color }} header">{{ TEXT.MODIFY_SETTINGS }}</h3>
+		
+		<form class="ui form" id="settings" action="{{ oOPW.action_url }}save.php" method="post">	
+			<input type="hidden" name="page_id" value="{{ page_id}}" />
+			<input type="hidden" name="section_id" value="{{ section_id}}" />
+			<input type="hidden" name="job" value="save_settings" />			
+			<input type="hidden" name="leptoken" value="{{ leptoken }}" />		
+			
+			{% if valid == 1 %}
+				<div class="ui positive message">
+					<div class="header">{{ oOPW.language.setup_validate }}</div>
+					<ul class="list">
+						<li>{{ oOPW.language.setup_success }}</li>
+						<li>{{ oOPW.language.info_version }}: {{ immotool_version }} </li>
+					</ul>
+				</div>	
+			{% else %}
+				<div class="ui negative message">
+					<div class="header">{{ oOPW.language.setup_problem }}</div>
+					<ul class="list">
+						<li>{{ oOPW.language.setup_step_export }}</li>
+						<li>{{ oOPW.language.setup_step_config }} </li>
+					</ul>
+					<div class="spacer2"></div>
+					<div class="header">{{ oOPW.language.setup_errors }}</div>
+					<ul class="list">
+						{% for item in errors %}
+							<li>{{ item }} </li>
+						{% endfor %}
+					</ul>					
+				</div>			
+			{% endif %}
+			<div class="spacer4"></div>			
+			<div class="column">			
+				<div class="field">
+					<label>{{ oOPW.language.setup_path }}</label>
+					<input name="immotool_base_path" type="text" value="{{ oOPW.settings.immotool_base_path }}">
+					<i>{{ oOPW.language.setup_path_info }}<br/><b>{{ LEPTON_PATH }}</b></i>					
+				</div>	
+			</div>
+			<div class="spacer4"></div>	
+			<div class="column">			
+				<div class="field">
+					<label>{{ oOPW.language.setup_url }}</label>
+					<input name="immotool_base_url" type="text" value="{{ oOPW.settings.immotool_base_url }}">
+					<i>{{ oOPW.language.setup_url_info }}<br/><b>{{ LEPTON_URL }}</b></i>					
+				</div>	
+			</div>			
+			<div class="spacer4"></div>			
+			<button class="ui positive button" type="submit">{{ TEXT.SAVE }}</button>									
+		</form>	
 	</div>
 </div>	
 {% endautoescape %}
